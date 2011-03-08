@@ -3,8 +3,8 @@ package
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Image;
-	import net.flashpunk.utils.Input;
-	import net.flashpunk.utils.Key;
+	import net.flashpunk.utils.*;
+	import net.flashpunk.FP;
 	
 	public class Player extends Entity
 	{
@@ -26,7 +26,7 @@ package
 			
 		}
 		
-		private function ChangementForme() {
+		private function ChangementForme():void {
 			var image:Image = new Image(this["Forme"+formeActuelle]);
 			graphic = image;
 			
@@ -44,7 +44,7 @@ package
 				x -= 3;
 			}
 
-			if (Input.check(Key.RIGHT) && x < 480 - width)
+			if (Input.check(Key.RIGHT) && x < FP.screen.width - width)
 			{
 				x += 3;
 			}
@@ -54,7 +54,7 @@ package
 				y -= 3;
 			}
 			
-			if (Input.check(Key.DOWN) && y < 640 - height)
+			if (Input.check(Key.DOWN) && y < FP.screen.height - height)
 			{
 				y += 3;
 			}

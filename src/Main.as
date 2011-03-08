@@ -11,7 +11,7 @@ package
 		{
 			super(480, 640, 60, false);
 			
-			FP.world = new MyWorld;
+			FP.world = new Menu;
 		}
 		
 
