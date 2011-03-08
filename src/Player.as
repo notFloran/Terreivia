@@ -8,30 +8,37 @@ package
 	
 	public class Player extends Entity
 	{
-		[Embed(source='../assets/player.png')]
-		private const PLAYER1:Class;
+		[Embed(source='../assets/forme1.png')]
+		private const Forme1:Class;
 		
-		[Embed(source='../assets/vaisseau.png')]
-		private const PLAYER2:Class;
+		[Embed(source='../assets/forme2.png')]
+		private const Forme2:Class;
 		
-		
-		public var mort:int = 0;
+		private var formeActuelle:int = 1;
 		
 		public function Player() 
 		{
-			graphic = new Image(PLAYER1);
+			// Input
+			Input.define("Change", Key.G);
 			
-			// Here I set the hitbox width/height with the setHitbox function.
-			setHitbox(50, 50);
 			
-			// Here I do the same thing by just assigning Player's properties.
-			width = 42;
-			height = 21;
+			TransformationForme();
+			
+		}
+		
+		private function TransformationForme() {
+			var image:Image = new Image(this["Forme"+formeActuelle]);
+			graphic = image;
+			
+			width = image.width;
+			height = image.height;
+			trace(width + " - " + height);
+			
+			setHitbox(20, 20);
 		}
 		
 		override public function update():void 
 		{
-			trace(x + " - " + y);
 			
 			if (Input.check(Key.LEFT) && x > 0)
 			{
@@ -53,15 +60,20 @@ package
 				y += 3;
 			}
 			
-			if (Input.check(Key.G))
+			if (Input.pressed("Change"))
 			{
-				graphic = new Image(PLAYER2);
+				if (formeActuelle == 1)
+					formeActuelle = 2;
+				else 
+					formeActuelle = 1;
+				
+				TransformationForme();
 			}
 			
-			if (collide("mechant", x, y))
+			/*if (collide("mechant", x, y))
 			{
-				mort = mort + 1;
-			}
+
+			}*/
 		}
 	}
 }

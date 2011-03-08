@@ -1,5 +1,6 @@
 package  
 {
+	import com.adobe.utils.IntUtil;
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Image;
 	import flash.net.URLRequest;
@@ -7,6 +8,7 @@ package
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.events.Event;
+	import net.flashpunk.FP;
 	
 	/**
 	 * ...
@@ -14,11 +16,15 @@ package
 	 */
 	public class GoogleMaps extends Entity
 	{
-		var loader:Loader = new Loader();
+		private var loader:Loader;
+		private var latitude:Number = 48.856667;
+		private var longitude:Number = 2.350987;
+		public var time:Number = 0;
 		
 		public function GoogleMaps() 
 		{
-			var url:String = "http://maps.google.com/maps/api/staticmap?center=48.856667,2.350987&maptype=satellite&zoom=16&size=480x640&sensor=false";
+			loader = new Loader();
+			var url:String = "http://maps.google.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&maptype=satellite&zoom=16&size=480x640&sensor=false";
 			var urlRequest:URLRequest = new URLRequest(url);
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, loadedGraphic);
 			loader.load(urlRequest);
@@ -29,6 +35,24 @@ package
 			var bitmapData:BitmapData = btmp.bitmapData;
 					
 			graphic = new Image(bitmapData);
+		}
+		
+		override public function update():void 
+		{
+			/*time += FP.elapsed;
+			y = y +1;
+			if (time >= 1)
+			{
+				trace("modif" + latitude);
+				latitude = latitude + 0.001;
+				loader = new Loader();
+				var url:String = "http://maps.google.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&maptype=satellite&zoom=16&size=480x640&sensor=false";
+				var urlRequest:URLRequest = new URLRequest(url);
+				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, loadedGraphic);
+				loader.load(urlRequest);
+				time = 0;
+				
+			}*/
 		}
 	
 		
