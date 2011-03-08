@@ -1,6 +1,5 @@
 package Entity
 {
-	import com.adobe.utils.IntUtil;
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Image;
 	import flash.net.URLRequest;

@@ -18,7 +18,8 @@ package Entity
 		public function Player() 
 		{
 			// Input
-			Input.define("Change", Key.G);
+			Input.define("ChangeForme", Key.G);
+			Input.define("Fire", Key.SPACE);
 			
 			// Placement
 			x = FP.screen.width / 2;
@@ -61,7 +62,7 @@ package Entity
 				y += 3;
 			}
 			
-			if (Input.pressed("Change"))
+			if (Input.pressed("ChangeForme"))
 			{
 				if (formeActuelle == 1)
 					formeActuelle = 2;
@@ -71,10 +72,11 @@ package Entity
 				ChangementForme();
 			}
 			
-			/*if (collide("mechant", x, y))
+			if (Input.pressed("Fire"))
 			{
+				FP.world.add(new Bullet(x,y));
+			}
 
-			}*/
 		}
 	}
 }

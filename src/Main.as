@@ -10,8 +10,8 @@ package
 		
 		public function Main() 
 		{
-			super(480, 640, 60, false);
 			
+			super(480, 640, 60, false);
 			FP.world = new Menu;
 		}
 		
