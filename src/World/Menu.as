@@ -4,8 +4,7 @@ package World
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.World;
-	import net.flashpunk.utils.Input;
-	import net.flashpunk.utils.Key;
+	import net.flashpunk.utils.*;
 	import net.flashpunk.FP;
 	
 	public class Menu extends World

@@ -20,6 +20,9 @@ package Entity
 			// Input
 			Input.define("Change", Key.G);
 			
+			// Placement
+			x = FP.screen.width / 2;
+			y = FP.screen.height - 100;
 			
 			ChangementForme();
 			
@@ -37,7 +40,7 @@ package Entity
 		
 		override public function update():void 
 		{
-	
+			
 			if (Input.check(Key.LEFT) && x > 0)
 			{
 				x -= 3;

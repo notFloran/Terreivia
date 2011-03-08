@@ -11,8 +11,11 @@ package World
 		{
 			add(new GoogleMaps);
 			add(new Player);
+			
+			add(new Enemy);
+			add(new Enemy);
+			add(new Enemy);
 		}
-
 
 	}
 }
