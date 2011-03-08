@@ -4,6 +4,9 @@ package
 	import net.flashpunk.graphics.Image;
 	import flash.net.URLRequest;
 	import flash.display.Loader;
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.events.Event;
 	
 	/**
 	 * ...
@@ -11,14 +14,21 @@ package
 	 */
 	public class GoogleMaps extends Entity
 	{
+		var loader:Loader = new Loader();
 		
 		public function GoogleMaps() 
 		{
-			var url:String = "http://maps.google.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&size=400x400&sensor=false";
+			var url:String = "http://maps.google.com/maps/api/staticmap?center=48.856667,2.350987&maptype=satellite&zoom=16&size=480x640&sensor=false";
 			var urlRequest:URLRequest = new URLRequest(url);
-			var loader:Loader = new Loader();
+			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, loadedGraphic);
 			loader.load(urlRequest);
-			graphic = new Image(loader.content);
+		}
+		
+		private function loadedGraphic (e:Event):void{
+			var btmp:Bitmap = Bitmap(loader.content);
+			var bitmapData:BitmapData = btmp.bitmapData;
+					
+			graphic = new Image(bitmapData);
 		}
 	
 		

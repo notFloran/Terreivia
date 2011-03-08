@@ -13,7 +13,6 @@ package
 		{
 			add(new GoogleMaps);
 			add(new Player);
-			add(new Mechant);
 		}
 
 	}
