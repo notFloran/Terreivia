@@ -2,6 +2,7 @@ package
 {
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
+	import World.*;
 	
 	public class Main extends Engine
 	{
