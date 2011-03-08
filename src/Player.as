@@ -22,24 +22,23 @@ package
 			Input.define("Change", Key.G);
 			
 			
-			TransformationForme();
+			ChangementForme();
 			
 		}
 		
-		private function TransformationForme() {
+		private function ChangementForme() {
 			var image:Image = new Image(this["Forme"+formeActuelle]);
 			graphic = image;
 			
+			// hitbox = width/height
 			width = image.width;
 			height = image.height;
-			trace(width + " - " + height);
 			
-			setHitbox(20, 20);
 		}
 		
 		override public function update():void 
 		{
-			
+	
 			if (Input.check(Key.LEFT) && x > 0)
 			{
 				x -= 3;
@@ -67,7 +66,7 @@ package
 				else 
 					formeActuelle = 1;
 				
-				TransformationForme();
+				ChangementForme();
 			}
 			
 			/*if (collide("mechant", x, y))
