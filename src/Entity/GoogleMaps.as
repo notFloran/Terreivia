@@ -29,19 +29,21 @@ package Entity
 			loader.load(urlRequest);
 		}
 		
-		private function loadedGraphic (e:Event):void{
+		private function loadedGraphic (e:Event):void {
+
 			var btmp:Bitmap = Bitmap(loader.content);
 			var bitmapData:BitmapData = btmp.bitmapData;
 					
 			graphic = new Image(bitmapData);
 		}
 		
-		override public function update():void 
+		/*override public function update():void 
 		{
-			/*time += FP.elapsed;
+			time += FP.elapsed;
 			y = y +1;
-			if (time >= 1)
+			if (time >= 20)
 			{
+				
 				trace("modif" + latitude);
 				latitude = latitude + 0.001;
 				loader = new Loader();
@@ -51,8 +53,9 @@ package Entity
 				loader.load(urlRequest);
 				time = 0;
 				
-			}*/
-		}
+			}
+		}*/
+		
 	
 		
 	}
