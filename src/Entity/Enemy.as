@@ -4,7 +4,7 @@ package Entity
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.*;
 	import net.flashpunk.FP;
-	
+	import Entity.Bullet.*
 
 	public class Enemy extends Entity
 	{
