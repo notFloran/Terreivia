@@ -19,7 +19,7 @@ package Entity
 		{
 			for (var i:int = 0 ; i < nombre; i++)
 			{
-				var temp:Enemy = new Enemy(this);
+				var temp:Enemy = type == "White" ? new WhiteEnemy(this) : new Entity.BlackEnemy(this);
 				temp.setX(spawnX);
 				temp.setY(spawnY - i * temp.height);
 				this.world.add(temp);

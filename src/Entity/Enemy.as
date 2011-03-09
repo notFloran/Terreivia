@@ -4,25 +4,20 @@ package Entity
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.*;
 	import net.flashpunk.FP;
+	import Bullet.*;
 	
 
 	public class Enemy extends Entity
 	{
 
-		[Embed(source='../../assets/enemy.png')]
-		private const Forme:Class;
 		// Si l'ennemie est dans un groupe
 		private var Group:GroupEnemy;
 		private var Leader:Boolean;
 
 		public function Enemy(group:GroupEnemy = null) 
 		{
-			graphic = new Image(Forme);
 			this.Group = group;
 			setHitbox(30, 30);
-
-
-
 		}
 		public function setX(x1:int):void
 		{
@@ -43,7 +38,6 @@ package Entity
 				b.destroy();
 				this.destroy();
 			}
-
 
 		}
 
