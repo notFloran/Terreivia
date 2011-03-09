@@ -26,7 +26,7 @@ package World
 	
 			if (Input.check(Key.ENTER))
 			{
-				FP.world = new Menu;
+				FP.world = new Niveau;
 			}
 		}
 
