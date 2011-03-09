@@ -10,16 +10,46 @@ package Entity
 		
 		[Embed(source='../../assets/enemy.png')]
 		private const Forme:Class;
+		// Si l'ennemie est dans un groupe
+		private var Group:GroupEnemy;
+		private var Leader:Boolean;
 		
-		public function Enemy() 
+		public function Enemy(group:GroupEnemy = null) 
 		{
 			graphic = new Image(Forme);
-			
+			this.Group = group;
 			setHitbox(30, 30);
 			
-			x = Math.random() * FP.screen.width;
-			y = Math.random() * 200;
+			
+			
 		}
-	
+		public function setX(x1:int):void
+		{
+			x = x1;
+		}
+		public function setY(y1:int):void
+		{
+			y = y1;
+		}
+		
+		override public function update():void
+		{
+			//Si collision avec une bullet on detruit la bullet + l'enemy
+			var b:Bullet = collide("bullet", x, y) as Bullet;
+			if (b)
+			{
+				b.destroy();
+				this.destroy();
+			}
+			if(y 
+			
+			
+		}
+		
+		public function destroy():void
+		{
+			if (Group != null) Group.destroy(this);
+			FP.world.remove(this);
+		}
 	}
 }

@@ -25,8 +25,8 @@ package Entity
 		
 		override public function update():void 
 		{
-			if (y < 0)
-				destroy();
+			if (y < 0) destroy();
+			if (collide("enemy", x, y)) destroy();
 			
 			y -= 1;
 		}
@@ -35,7 +35,7 @@ package Entity
 		 * Destructeur
 		 */
 		public function destroy():void
-		{
+		{	
 			FP.world.remove(this);
 		}
 	}
