@@ -6,6 +6,7 @@ package World
 	import net.flashpunk.World;
 	import net.flashpunk.graphics.Image;
 	import Entity.*;
+	import Entity.Enemy.*;
 	import net.flashpunk.FP;
 	
 	public class Niveau extends World
