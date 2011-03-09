@@ -4,49 +4,52 @@ package Entity
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.*;
 	import net.flashpunk.FP;
-	
+
 	public class Enemy extends Entity
 	{
-		
+
 		[Embed(source='../../assets/enemy.png')]
 		private const Forme:Class;
-		public var vies:int = 3;
-		
-		/**
-		 * Constructeur
-		 */
-		public function Enemy() 
+		// Si l'ennemie est dans un groupe
+		private var Group:GroupEnemy;
+		private var Leader:Boolean;
+
+		public function Enemy(group:GroupEnemy = null) 
 		{
 			graphic = new Image(Forme);
-			
+			this.Group = group;
 			setHitbox(30, 30);
-			
-			x = Math.random() * FP.screen.width;
-			y = Math.random() * 200;
+
+
+
 		}
-		
-		override public function update():void 
+		public function setX(x1:int):void
 		{
-			
+			x = x1;
+		}
+		public function setY(y1:int):void
+		{
+			y = y1;
+		}
+
+		override public function update():void
+		{
+			//Si collision avec une bullet on detruit la bullet + l'enemy
 			var b:Bullet = collide("bullet", x, y) as Bullet;
-			
 			if (b)
 			{
-				vies--;
 				b.destroy();
-				
-				if (vies == 0)
-					destroy();
+				this.destroy();
 			}
+			if(y 
+
+
 		}
-		
-		/*
-		 * Destructeur
-		 */
+
 		public function destroy():void
 		{
+			if (Group != null) Group.destroy(this);
 			FP.world.remove(this);
 		}
-	
 	}
 }
