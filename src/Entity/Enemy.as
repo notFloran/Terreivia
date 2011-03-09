@@ -4,7 +4,6 @@ package Entity
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.*;
 	import net.flashpunk.FP;
-	import Entity.Bullet.*
 
 	public class Enemy extends Entity
 	{
@@ -25,19 +24,6 @@ package Entity
 		public function setY(y1:int):void
 		{
 			y = y1;
-		}
-
-		override public function update():void
-		{
-			//Si collision avec une bullet on detruit la bullet + l'enemy
-			var b:Bullet = collide("bullet", x, y) as Bullet;
-			if (b)
-			{
-				Score.updateScore(50);
-				b.destroy();
-				this.destroy();
-			}
-
 		}
 
 		public function destroy():void

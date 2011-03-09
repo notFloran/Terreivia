@@ -8,6 +8,8 @@ package Entity.Bullet
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.FP;
+	import Entity.Bullet.*;
+	import Entity.*;
 	
 	public class BlackBullet extends Bullet 
 	{
@@ -26,8 +28,7 @@ package Entity.Bullet
 			
 			
 		}
-		
-	
+
 		
 	}
 		
