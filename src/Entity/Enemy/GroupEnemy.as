@@ -31,8 +31,8 @@ package Entity.Enemy
 			for each(var e:Enemy in Group)
 			{
 				var player:Entity = world.classFirst(Player);
-				if ( player.x > e.x ) e.x += 1;
-				if ( player.x < e.x ) e.x -= 1;
+				//if ( player.x > e.x ) e.x += 1;
+				//if ( player.x < e.x ) e.x -= 1;
 				e.y += 1;
 			}
 		}

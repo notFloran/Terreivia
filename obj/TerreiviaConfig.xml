@@ -17,16 +17,16 @@
       <value>'09/03/2011'</value>
     </define>
     <source-path append="true">
-      <path-element>C:\Users\Flash Fucking\Terreivia\Terreivia\src</path-element>
-      <path-element>C:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
+      <path-element>C:\Users\Floran\My Dropbox\Développement\Flash\Terreivia\src</path-element>
+      <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>C:\Users\Flash Fucking\Terreivia\Terreivia\lib\map_1_20.swc</path-element>
-      <path-element>C:\Users\Flash Fucking\Terreivia\Terreivia\lib\map_flex_1_20.swc</path-element>
+      <path-element>C:\Users\Floran\My Dropbox\Développement\Flash\Terreivia\lib\map_1_20.swc</path-element>
+      <path-element>C:\Users\Floran\My Dropbox\Développement\Flash\Terreivia\lib\map_flex_1_20.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Flash Fucking\Terreivia\Terreivia\src\Main.as</path-element>
+    <path-element>C:\Users\Floran\My Dropbox\Développement\Flash\Terreivia\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
