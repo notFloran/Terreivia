@@ -15,6 +15,9 @@ package World
 		
 		public function Niveau() 
 		{
+			//Couleur de fond
+			FP.screen.color = 0x808080;
+			
 			add(new Fond);
 			add(new Score);
 			add(new Player);

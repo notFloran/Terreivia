@@ -33,6 +33,10 @@ package Entity.Enemy
 		override public function update():void
 		{
 			time += FP.elapsed;
+			
+			// Hors de l'écran
+			if (y > FP.screen.height)	this.destroy();
+			
 			//Si collision avec une bullet on detruit la bullet + l'enemy
 			var b:BlackBullet = collide("blackbullet", x, y) as BlackBullet;
 			if (b)

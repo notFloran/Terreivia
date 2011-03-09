@@ -32,5 +32,6 @@ package Entity.Enemy
 			if (Group != null) Group.destroy(this);
 			FP.world.remove(this);
 		}
+		
 	}
 }
