@@ -4,7 +4,7 @@ package Entity
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.*;
 	import net.flashpunk.FP;
-	
+	import Entity.Bullet.*
 	public class Player extends Entity
 	{
 		[Embed(source='../../assets/forme1.png')]
@@ -74,7 +74,10 @@ package Entity
 			
 			if (Input.pressed("Fire"))
 			{
-				FP.world.add(new Bullet(x,y));
+				if(formeActuelle == 1)
+					FP.world.add(new WhiteBullet(x, y));
+				else
+					FP.world.add(new BlackBullet(x, y));
 			}
 
 		}
