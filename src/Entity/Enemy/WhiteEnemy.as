@@ -14,11 +14,19 @@ package Entity.Enemy
 		private const Forme:Class;
 		private var time:Number = 0;
 
+
 		public function WhiteEnemy(group:GroupEnemy = null) 
 		{
 			
 			super(group);
+			
+			var image:Image =  new Image(Forme);
+			
 			graphic = new Image(Forme);
+			
+			height = image.height;
+			width = image.width;
+			
 
 		}
 		
@@ -36,7 +44,7 @@ package Entity.Enemy
 			
 			if (time > 1)
 			{
-				FP.world.add(new WhiteBullet(x, y,Bullet.DOWN));
+				FP.world.add(new WhiteBullet(x+width/2, y+height+1,Bullet.DOWN));
 				time = 0;
 			}
 

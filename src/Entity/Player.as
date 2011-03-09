@@ -5,6 +5,7 @@ package Entity
 	import net.flashpunk.utils.*;
 	import net.flashpunk.FP;
 	import Entity.Bullet.*
+	import World.GameOver;
 	public class Player extends Entity
 	{
 		[Embed(source='../../assets/forme1.png')]
@@ -14,7 +15,7 @@ package Entity
 		private const Forme2:Class;
 		
 		private var formeActuelle:int = 1;
-		
+		private var bar:int = 0;
 		public function Player() 
 		{
 			// Input
@@ -41,7 +42,30 @@ package Entity
 		
 		override public function update():void 
 		{
+			//Test mort
+			if (formeActuelle == 1 && collide("blackbullet", x, y))
+				FP.world = new GameOver;
+			if (formeActuelle == 2 && collide("whitebullet", x, y))
+				FP.world = new GameOver;
+			if (collide("enemy", x, y))
+				FP.world = new GameOver;
+			//Test absorption boule
+			var temp:WhiteBullet = collide("whitebullet", x, y) as WhiteBullet;
+			if (formeActuelle == 1 && temp)
+			{
+				if (bar < 100 )
+					bar += 2;
+				temp.destroy();
+			}
 			
+			var temp2:BlackBullet = collide("blackbullet", x, y) as BlackBullet;
+			if (formeActuelle == 2 && temp2)
+			{
+				if (bar < 100 )
+					bar += 2;
+				temp2.destroy();
+			}
+			//Test input
 			if (Input.check(Key.LEFT) && x > 0)
 			{
 				x -= 3;
@@ -61,7 +85,7 @@ package Entity
 			{
 				y += 3;
 			}
-			
+			//Test changement forme
 			if (Input.pressed("ChangeForme"))
 			{
 				if (formeActuelle == 1)
@@ -71,13 +95,13 @@ package Entity
 				
 				ChangementForme();
 			}
-			
+			//Test tir
 			if (Input.pressed("Fire"))
 			{
 				if(formeActuelle == 1)
-					FP.world.add(new WhiteBullet(x, y,Bullet.UP));
+					FP.world.add(new WhiteBullet(x+width/2, y-height-1,Bullet.UP));
 				else
-					FP.world.add(new BlackBullet(x, y,Bullet.UP));
+					FP.world.add(new BlackBullet(x+width/2, y-height-1,Bullet.UP));
 			}
 
 		}

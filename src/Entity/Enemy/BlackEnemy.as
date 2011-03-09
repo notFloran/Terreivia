@@ -14,13 +14,18 @@ package Entity.Enemy
 		[Embed(source='../../../assets/blackenemy.png')]
 		private const Forme:Class;
 		private var time:Number = 0;
+		
+
 
 		public function BlackEnemy(group:GroupEnemy = null) 
 		{
 			
 			super(group);
-			graphic = new Image(Forme);
-
+			var image:Image =  new Image(Forme);
+			graphic = image;
+			
+			height = image.height;
+			width = image.width;
 		}
 		
 		override public function update():void
@@ -36,7 +41,7 @@ package Entity.Enemy
 			}
 			if (time > 1)
 			{
-				FP.world.add(new BlackBullet(x, y,Bullet.DOWN));
+				FP.world.add(new BlackBullet(x+width/2, y+height+1,Bullet.DOWN));
 				time = 0;
 			}
 		}
