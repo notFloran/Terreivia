@@ -38,8 +38,7 @@ package Entity
 		public function destroy(enemy:Enemy):void
 		{
 			Group.splice(Group.indexOf(enemy),1);
-			if (!Group.length)
-				FP.world.remove(this);
+			if (!Group.length) FP.world.remove(this);
 		}
 	
 	}

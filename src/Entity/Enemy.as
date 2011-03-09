@@ -4,6 +4,7 @@ package Entity
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.*;
 	import net.flashpunk.FP;
+	
 
 	public class Enemy extends Entity
 	{
@@ -38,10 +39,10 @@ package Entity
 			var b:Bullet = collide("bullet", x, y) as Bullet;
 			if (b)
 			{
+				Score.updateScore(50);
 				b.destroy();
 				this.destroy();
 			}
-			if(y 
 
 
 		}
