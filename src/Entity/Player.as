@@ -47,6 +47,7 @@ package Entity
 				FP.world = new GameOver;
 			if (formeActuelle == 2 && collide("whitebullet", x, y))
 				FP.world = new GameOver;
+				
 			if (collide("enemy", x, y))
 				FP.world = new GameOver;
 			//Test absorption boule
