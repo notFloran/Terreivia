@@ -6,28 +6,23 @@ package Entity.Bullet
 	
 	public class Bullet extends Entity
 	{
+		public static const UP:int = 5;
+		public static const DOWN:int = -5;
+		private var orientation:int;
 		
-		[Embed(source='../../../assets/bullet.png')]
-		private const Forme:Class;
-		
-		public function Bullet(posX:int = 0, posY:int = 0) 
-		{
-			
-			graphic = new Image(Forme);
-			
-			setHitbox(10, 10);
-			
+		public function Bullet(posX:int, posY:int, orientation:int ) 
+		{			
 			x = posX;
 			y = posY;
 			
-			type = "bullet";
+			this.orientation = orientation;
 		}
 		
 		override public function update():void 
 		{
 			if (y < 0) destroy();
 	
-			y -= 1;
+			y -= orientation;
 		}
 	
 		/*

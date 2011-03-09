@@ -75,9 +75,9 @@ package Entity
 			if (Input.pressed("Fire"))
 			{
 				if(formeActuelle == 1)
-					FP.world.add(new WhiteBullet(x, y));
+					FP.world.add(new WhiteBullet(x, y,Bullet.UP));
 				else
-					FP.world.add(new BlackBullet(x, y));
+					FP.world.add(new BlackBullet(x, y,Bullet.UP));
 			}
 
 		}

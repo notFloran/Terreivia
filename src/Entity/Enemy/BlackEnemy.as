@@ -13,6 +13,7 @@ package Entity.Enemy
 
 		[Embed(source='../../../assets/blackenemy.png')]
 		private const Forme:Class;
+		private var time:Number = 0;
 
 		public function BlackEnemy(group:GroupEnemy = null) 
 		{
@@ -24,15 +25,20 @@ package Entity.Enemy
 		
 		override public function update():void
 		{
+			time += FP.elapsed;
 			//Si collision avec une bullet on detruit la bullet + l'enemy
-			var b:BlackBullet = collide("blackbullet", x, y) as BlackBullet;
+			var b:WhiteBullet = collide("whitebullet", x, y) as WhiteBullet;
 			if (b)
 			{
 				Score.updateScore(50);
 				b.destroy();
 				this.destroy();
 			}
-
+			if (time > 1)
+			{
+				FP.world.add(new BlackBullet(x, y,Bullet.DOWN));
+				time = 0;
+			}
 		}
 		
 	}
