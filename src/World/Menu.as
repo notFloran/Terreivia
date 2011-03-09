@@ -15,6 +15,7 @@ package World
  
             var title:Text = new Text("Terreivia!\nPress Enter to play.");
             title.size = 15;
+			FP.screen.color = 0x000000;
             add(new Entity(FP.screen.width / 3,FP.screen.height / 2,title));
 			
 			
