@@ -14,7 +14,7 @@ package World
 		
 		public function Niveau() 
 		{
-			add(new GoogleMaps);
+			add(new Fond);
 			add(new Score);
 			add(new Player);
 			

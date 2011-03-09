@@ -15,51 +15,51 @@ package Entity
 	import com.google.maps.Map;
 	import com.google.maps.MapEvent;
 	import com.google.maps.MapType;
-	import GoogleMaps.*;
 
 	/**
 	 * ...
 	 * @author Floran
 	 */
-	public class GoogleMaps extends Entity
+	public class Fond extends Entity
 	{
 		public var time:Number = 0;
+		private var latitude:Number = 48.856667;
+		private var longitude:Number = 2.350987;
 		private var map:Map;
+		private var mapOk:Boolean = false;
 		
-		public function GoogleMaps() 
+		public function Fond() 
 		{
 
 			map = new Map();
 			map.key = "ABQIAAAA1JaGE_IVnKmThPpIoZ5yLRQUH7KqTYu2w3iAS6SH_cEkPPK8_BSZIZ53AO1EcyAQrV8wsBuPWS9r6Q";
 			map.sensor = "false";
 			map.setSize(new Point(FP.screen.width, FP.screen.height));
-			//map.addEventListener(MapEvent.MAP_READY, onMapReady);
-			map.addEventListener(MapEvent.MAP_PREINITIALIZE, onMapPreinitialize);
+			map.addEventListener(MapEvent.MAP_READY, onMapReady);
 			map.visible = false;
 
 			FP.stage.addChild(map);
 		}
 		
 		public function onMapReady(event:Event):void {
-			map.setCenter(new LatLng(40.736072, -73.992062), 14, MapType.NORMAL_MAP_TYPE);
+			map.setCenter(new LatLng(latitude, longitude), 16, MapType.SATELLITE_MAP_TYPE);
+			mapOk = true;
 		}
 		
-		public function onMapPreinitialize(event:Event):void {
-			var opts:MapOptions = new MapOptions();
-            opts.mapTypes = [Sky.VISIBLE_MAP_TYPE];
-            opts.center = new LatLng(69.35708, 30.9375);
-			map.setInitOptions(opts);
-		}
 		
 		override public function update():void 
 		{
 			
-			if (Input.check(Key.G))
-			{
-				var bitmapData:BitmapData = map.getPrintableBitmap().bitmapData;
-				graphic = new Image(bitmapData);
-			}
+			time += FP.elapsed;
 			
+			if (mapOk && time > 0.08) {
+				time = 0;
+				graphic = new Image(map.getPrintableBitmap().bitmapData);
+				
+				latitude += 0.00005;
+				map.panTo(new LatLng(latitude, longitude));
+				//map.setCenter(new LatLng(latitude, longitude), 16, MapType.SATELLITE_MAP_TYPE);
+			}
 		}
 	
 		
