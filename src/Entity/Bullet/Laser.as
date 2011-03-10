@@ -19,7 +19,7 @@ package Entity.Bullet
 		override public function update():void
 		{
 			time += FP.elapsed;
-			if (time > 2s)
+			if (time > 2)
 				destroy();
 			
 		}

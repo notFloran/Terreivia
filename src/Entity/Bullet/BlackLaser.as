@@ -12,11 +12,13 @@ package Entity.Bullet
 	 * ...
 	 * @author ...
 	 */
-	public class WhiteLaser extends Laser
+	public class BlackLaser extends Laser
 	{
-		[Embed(source='../../../assets/WhiteLaser.png')]
+		
+		[Embed(source = '../../../assets/BlackLaser.png')]
 		private const Forme:Class;
-		public function WhiteLaser() 
+		
+		public function BlackLaser() 
 		{
 			super();
 			graphic = new Image(Forme);
@@ -24,9 +26,9 @@ package Entity.Bullet
 		
 		override public function update():void
 		{
-			var enemyList:Array = new Array;
-			enemyList = world.getClass(BlackEnemy, enemyList);
-			for each(var e:BlackEnemy in enemyList)
+			var ennemyList:Array;
+			enemyList = world.getClass(WhiteEnemy, enemyList);
+			for each(var e:WhiteEnemy in enemyList)
 				e.destroy();
 			
 		}
