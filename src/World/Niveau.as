@@ -12,13 +12,13 @@ package World
 	public class Niveau extends World
 	{
 		
-		
 		public function Niveau() 
 		{
 			//Couleur de fond
 			FP.screen.color = 0x808080;
 			add(new Powerbar);
 			add(new Fond);
+			add(new Nuage);
 			add(new Score);
 			add(new Player);
 			var groupe1:GroupEnemy = new GroupEnemy();

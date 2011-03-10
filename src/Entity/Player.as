@@ -39,7 +39,7 @@ package Entity
 			// hitbox = width/height
 			width = image.width;
 			height = image.height;
-			setHitbox(10, 30);
+			
 		}
 		
 		override public function update():void 
