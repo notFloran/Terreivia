@@ -5,6 +5,7 @@ package Entity
 	import net.flashpunk.utils.*;
 	import net.flashpunk.FP;
 	import Entity.Bullet.*
+	import Entity.*
 	import World.GameOver;
 	public class Player extends Entity
 	{
@@ -13,11 +14,12 @@ package Entity
 		
 		[Embed(source='../../assets/forme2.png')]
 		private const Forme2:Class;
-		
+		private var bar:Powerbar;
 		private var formeActuelle:int = 1;
-		private var bar:int = 0;
+			
 		public function Player() 
-		{
+		{			
+			
 			// Input
 			Input.define("ChangeForme", Key.G);
 			Input.define("Fire", Key.SPACE);
@@ -42,6 +44,8 @@ package Entity
 		
 		override public function update():void 
 		{
+			if (!bar) bar = FP.world.classFirst(Powerbar) as Powerbar;
+				
 			//Test mort
 			if (formeActuelle == 1 && collide("blackbullet", x, y))
 				FP.world = new GameOver;
@@ -54,16 +58,15 @@ package Entity
 			var temp:WhiteBullet = collide("whitebullet", x, y) as WhiteBullet;
 			if (formeActuelle == 1 && temp)
 			{
-				if (bar < 100 )
-					bar += 2;
+				bar.maj(2);
 				temp.destroy();
-			}
+	
+				}
 			
 			var temp2:BlackBullet = collide("blackbullet", x, y) as BlackBullet;
 			if (formeActuelle == 2 && temp2)
 			{
-				if (bar < 100 )
-					bar += 2;
+				bar.maj(2);
 				temp2.destroy();
 			}
 			//Test input
