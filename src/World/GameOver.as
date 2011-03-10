@@ -18,7 +18,6 @@ package World
             title.size = 15;
             add(new Entity(FP.screen.width / 3,FP.screen.height / 2,title));
 			
-			
 		}
 		
 		override public function update():void 

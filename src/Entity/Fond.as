@@ -15,6 +15,7 @@ package Entity
 	import com.google.maps.Map;
 	import com.google.maps.MapEvent;
 	import com.google.maps.MapType;
+	import com.google.maps.extras.planetary.Moon;
 
 	/**
 	 * ...
@@ -23,8 +24,8 @@ package Entity
 	public class Fond extends Entity
 	{
 		public var time:Number = 0;
-		private var latitude:Number = 48.856667;
-		private var longitude:Number = 2.350987;
+		private var latitude:Number = 48.857339;
+		private var longitude:Number = 2.296808;
 		private var map:Map;
 		private var mapOk:Boolean = false;
 		
@@ -36,6 +37,7 @@ package Entity
 			map.sensor = "false";
 			map.setSize(new Point(FP.screen.width, FP.screen.height));
 			map.addEventListener(MapEvent.MAP_READY, onMapReady);
+			//map.addEventListener(MapEvent.MAP_PREINITIALIZE, onMapPreinitialize);
 			map.visible = false;
 
 			FP.stage.addChild(map);
@@ -46,19 +48,27 @@ package Entity
 			mapOk = true;
 		}
 		
+		private function onMapPreinitialize(event:Event):void {
+			var opts:MapOptions = new MapOptions();
+			opts.mapTypes = [Moon.ELEVATION_MAP_TYPE, Moon.VISIBLE_MAP_TYPE];
+			opts.mapType = Moon.VISIBLE_MAP_TYPE;
+			opts.center = new LatLng(latitude, longitude);
+			opts.zoom = 6;
+			this.map.setInitOptions(opts);
+			mapOk = true;
+		}
 		
 		override public function update():void 
 		{
 			
 			time += FP.elapsed;
 			
-			if (mapOk && time > 0.08) {
+			if (mapOk && time > 0.25) {
 				time = 0;
 				graphic = new Image(map.getPrintableBitmap().bitmapData);
 				
-				latitude += 0.00005;
+				latitude += 0.00001;
 				map.panTo(new LatLng(latitude, longitude));
-				//map.setCenter(new LatLng(latitude, longitude), 16, MapType.SATELLITE_MAP_TYPE);
 			}
 		}
 	
