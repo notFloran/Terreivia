@@ -16,7 +16,7 @@ package Entity.Enemy
 		{
 			this.Group = group;
 			type = "enemy";
-			setHitbox(45, 30);
+			setHitbox(40, 25);
 		}
 		public function setX(x1:int):void
 		{

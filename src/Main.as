@@ -15,6 +15,7 @@ package
 
 			FP.world = new Menu;
 			FP.console.enable();
+			
 			FP.console.toggleKey = Key.T;
 		}
 		

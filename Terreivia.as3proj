@@ -49,6 +49,7 @@
   <libraryPaths>
     <element path="lib\map_1_20.swc" />
     <element path="lib\map_flex_1_20.swc" />
+    <element path="lib\GoogleMapsAPIUtilityLibrary.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
