@@ -16,12 +16,11 @@ package World
 		{
 			//Couleur de fond
 			FP.screen.color = 0x808080;
-			
+			add(new Powerbar);
 			add(new Fond);
 			add(new Nuage);
 			add(new Score);
 			add(new Player);
-			
 			var groupe1:GroupEnemy = new GroupEnemy();
 			var groupe2:GroupEnemy = new GroupEnemy();
 			var groupe3:GroupEnemy = new GroupEnemy();
@@ -35,7 +34,6 @@ package World
 			groupe3.createGroup(5, "Black",  240 , 0);
 			groupe4.createGroup(4, "White",  300 , 0);
 			
-			add(new Score);
 			
 		}
 		
