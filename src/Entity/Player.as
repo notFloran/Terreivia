@@ -16,7 +16,7 @@ package Entity
 		private const Forme2:Class;
 		private var bar:Powerbar;
 		private var formeActuelle:int = 1;
-			
+		
 		public function Player() 
 		{			
 			
@@ -29,7 +29,7 @@ package Entity
 			y = FP.screen.height - 100;
 			
 			ChangementForme();
-			
+			setHitbox(10, 30,-15);
 		}
 		
 		private function ChangementForme():void {
@@ -39,7 +39,7 @@ package Entity
 			// hitbox = width/height
 			width = image.width;
 			height = image.height;
-			
+			setHitbox(10, 30);
 		}
 		
 		override public function update():void 
