@@ -12,8 +12,11 @@ package World
 	public class Niveau extends World
 	{
 		
+		public var time:Number = 0;
+		
 		public function Niveau() 
 		{
+			
 			//Couleur de fond
 			FP.screen.color = 0x808080;
 			add(new Powerbar);
@@ -36,6 +39,14 @@ package World
 			
 			
 		}
+		
+		/*override public function update():void 
+		{
+			
+			time += FP.elapsed;
+			
+
+		}*/
 		
 		
 	}

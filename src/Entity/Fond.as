@@ -15,7 +15,6 @@ package Entity
 	import com.google.maps.Map;
 	import com.google.maps.MapEvent;
 	import com.google.maps.MapType;
-	import com.google.maps.extras.planetary.Moon;
 
 	/**
 	 * ...
@@ -37,7 +36,6 @@ package Entity
 			map.sensor = "false";
 			map.setSize(new Point(FP.screen.width, FP.screen.height));
 			map.addEventListener(MapEvent.MAP_READY, onMapReady);
-			//map.addEventListener(MapEvent.MAP_PREINITIALIZE, onMapPreinitialize);
 			map.visible = false;
 
 			FP.stage.addChild(map);
@@ -45,16 +43,6 @@ package Entity
 		
 		public function onMapReady(event:Event):void {
 			map.setCenter(new LatLng(latitude, longitude), 16, MapType.SATELLITE_MAP_TYPE);
-			mapOk = true;
-		}
-		
-		private function onMapPreinitialize(event:Event):void {
-			var opts:MapOptions = new MapOptions();
-			opts.mapTypes = [Moon.ELEVATION_MAP_TYPE, Moon.VISIBLE_MAP_TYPE];
-			opts.mapType = Moon.VISIBLE_MAP_TYPE;
-			opts.center = new LatLng(latitude, longitude);
-			opts.zoom = 6;
-			this.map.setInitOptions(opts);
 			mapOk = true;
 		}
 		
