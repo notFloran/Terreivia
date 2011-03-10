@@ -30,7 +30,6 @@ package Entity
 		
 		public function Fond() 
 		{
-
 			map = new Map();
 			map.key = "ABQIAAAA1JaGE_IVnKmThPpIoZ5yLRQUH7KqTYu2w3iAS6SH_cEkPPK8_BSZIZ53AO1EcyAQrV8wsBuPWS9r6Q";
 			map.sensor = "false";
@@ -48,7 +47,6 @@ package Entity
 		
 		override public function update():void 
 		{
-			
 			time += FP.elapsed;
 			
 			if (mapOk && time > 0.25) {

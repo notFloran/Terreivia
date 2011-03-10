@@ -12,8 +12,6 @@ package World
 	public class Niveau extends World
 	{
 		
-		public var time:Number = 0;
-		
 		public function Niveau() 
 		{
 			
@@ -37,16 +35,12 @@ package World
 			groupe3.createGroup(5, "Black",  240 , 0);
 			groupe4.createGroup(4, "White",  300 , 0);
 			
-			
 		}
 		
-		/*override public function update():void 
+		override public function update():void 
 		{
-			
-			time += FP.elapsed;
-			
 
-		}*/
+		}
 		
 		
 	}

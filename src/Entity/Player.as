@@ -54,6 +54,7 @@ package Entity
 				
 			if (collide("enemy", x, y))
 				FP.world = new GameOver;
+			
 			//Test absorption boule
 			var temp:WhiteBullet = collide("whitebullet", x, y) as WhiteBullet;
 			if (formeActuelle == 1 && temp)
@@ -69,6 +70,7 @@ package Entity
 				bar.maj(2);
 				temp2.destroy();
 			}
+			
 			//Test input
 			if (Input.check(Key.LEFT) && x > 0)
 			{
