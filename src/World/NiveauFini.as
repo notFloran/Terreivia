@@ -14,7 +14,7 @@ package World
 		public function NiveauFini() 
 		{
  
-            var title:Text = new Text("Good game !\n\nVotre score : " + Score.score + "\n\n Entrer pour retourner au menu");
+            var title:Text = new Text("Good game !\n\nVotre score : " + Score.score + "\n\nPress Enter to return to the menu");
 			FP.screen.color = 0x000000;
             title.size = 15;
             add(new Entity(FP.screen.width / 3,FP.screen.height / 2,title));

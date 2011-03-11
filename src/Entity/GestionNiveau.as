@@ -8,6 +8,8 @@ package Entity
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.*;
+	
+	import flash.utils.ByteArray;
 
 	/**
 	 * ...
@@ -19,14 +21,14 @@ package Entity
 		public var time2:Number = 0;
 		private var Evenements:Array = new Array();
 		
+		[Embed(source="niveau.xml", mimeType="application/octet-stream")]
+		private var xmlNiveau:Class;
+		
 		public function GestionNiveau () 
 		{
 	
-			var xml:XML = <root>
-				<Evenement time="5" nombre="4" type="White" x="20" y="0" />
-				<Evenement time="5" nombre="3" type="Black" x="200" y="0" />
-				<Evenement time="15" nombre="2" type="Black" x="60" y="0" />
-			</root>;
+			var byteArray:ByteArray = new xmlNiveau(  );
+			var xml:XML = new XML(byteArray.readUTFBytes(byteArray.length));
 			
 			for(var i:String in xml..Evenement) {
 				var Evenement:Object = new Object();
@@ -66,7 +68,6 @@ package Entity
 				time2 = 0;
 				var tabGroupEnemy:Array = [];
 				FP.world.getClass(GroupEnemy,tabGroupEnemy);
-				FP.log(Evenements.length + "  " + tabGroupEnemy.length);
 				
 				if(Evenements.length == 0 && tabGroupEnemy.length == 0) FP.world = new NiveauFini;
 			}

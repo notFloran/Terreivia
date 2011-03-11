@@ -1,3 +1,5 @@
 <root>
-	<Evenement time="10" nombre="4" type="White" x="20" y="0" />			<Evenement time="10" nombre="3" type="Black" x="200" y="0" />
-	<Evenement time="30" nombre="2" type="Black" x="60" y="0" />		</root>
+	<Evenement time="5" nombre="4" type="White" x="20" y="0" />
+	<Evenement time="5" nombre="3" type="Black" x="200" y="0" />
+	<Evenement time="15" nombre="15" type="Black" x="60" y="0" />
+</root>
