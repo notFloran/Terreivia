@@ -13,14 +13,15 @@ package Entity.Bullet
 		[Embed(source='../../../assets/WhiteBullet.png')]
 		private const Forme:Class;
 		
-		public function WhiteBullet(x:int, y:int, orientation:int) 
+		public function WhiteBullet(x:int, y:int, orientation:int,friendly:Boolean) 
 		{
 			super(x, y, orientation);
 			
 			graphic = new Image(Forme);
 			setHitbox(10, 10);
 			
-			type = "whitebullet";
+			if (friendly) type = "enemy_whitebullet";
+			else type = "whitebullet";
 			
 			
 		}
