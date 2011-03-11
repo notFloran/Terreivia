@@ -10,6 +10,8 @@ package Entity
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.*;
+	
+	import Entity.Fond;
 
 	/**
 	 * ...
@@ -27,7 +29,7 @@ package Entity
 		{
 			bitmap = new BitmapData(480,640,true,0x00CCCCCC);
 
-			graphic = new Image(bitmap);
+			//graphic = new Image(bitmap);
 
 		}	
 		
@@ -36,7 +38,7 @@ package Entity
 			
 			time += FP.elapsed;
 			
-			if (time > 0.1) {
+			if (time > 0.1 && Fond.mapOk) {
 				time = 0;
 				
 				var point:Point=new Point(this._offset,0);

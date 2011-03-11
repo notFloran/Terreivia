@@ -3,6 +3,8 @@ package Entity
 
 	import Entity.Enemy.*;
 	
+	import World.NiveauFini;
+	
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.*;
@@ -54,6 +56,8 @@ package Entity
 				}
 				
 			}
+			
+			//if(Evenements.length == 0) FP.world = new NiveauFini;
 			
 		}	
 		

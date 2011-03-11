@@ -26,7 +26,7 @@ package Entity
 		private var latitude:Number = 48.857339;
 		private var longitude:Number = 2.296808;
 		private var map:Map;
-		private var mapOk:Boolean = false;
+		public static var mapOk:Boolean = false;
 		
 		public function Fond() 
 		{
@@ -42,14 +42,14 @@ package Entity
 		
 		public function onMapReady(event:Event):void {
 			map.setCenter(new LatLng(latitude, longitude), 16, MapType.SATELLITE_MAP_TYPE);
-			mapOk = true;
+			Fond.mapOk = true;
 		}
 		
 		override public function update():void 
 		{
 			time += FP.elapsed;
 			
-			if (mapOk && time > 0.25) {
+			if (Fond.mapOk && time > 0.25) {
 				time = 0;
 				graphic = new Image(map.getPrintableBitmap().bitmapData);
 				
