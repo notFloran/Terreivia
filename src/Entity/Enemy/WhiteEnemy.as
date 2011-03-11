@@ -53,7 +53,7 @@ package Entity.Enemy
 			
 			if (time > 1)
 			{
-				FP.world.add(new WhiteBullet(x+width/2, y+height+1,Bullet.DOWN));
+				FP.world.add(new WhiteBullet(x+width/2, y+height+1,Bullet.DOWN,true));
 				time = 0;
 			}
 
