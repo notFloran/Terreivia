@@ -7,6 +7,7 @@ package Entity.Bullet
 	import net.flashpunk.FP;
 	import Entity.Bullet.*
 	import Entity.Enemy.*
+	import net.flashpunk.graphics.Spritemap;
 	import Entity.*
 	/**
 	 * ...
@@ -16,17 +17,23 @@ package Entity.Bullet
 	{
 		
 		[Embed(source = '../../../assets/BlackLaser.png')]
-		private const Forme:Class;
+		private const Laser:Class;
 		
-		public function BlackLaser() 
+		public var sprLaserSpritemap:Spritemap = new Spritemap(Laser, 480, 640);
+		public function BlackLaser(x:int,y:int) 
 		{
 			super();
-			graphic = new Image(Forme);
+			sprLaserSpritemap.add("fire", [0, 1, 2, 3], 7, false);
+			sprLaserSpritemap.x =  x - 225;
+			sprLaserSpritemap.y = y - 610;
+			graphic = sprLaserSpritemap;
+			
 		}
 		
 		override public function update():void
 		{
 			var enemyList:Array;
+			sprLaserSpritemap.play("fire");
 			world.getClass(WhiteEnemy, enemyList);
 			for each(var e:WhiteEnemy in enemyList)
 				e.destroy();

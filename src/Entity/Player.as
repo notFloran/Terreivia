@@ -94,8 +94,8 @@ package Entity
 			if (Input.pressed(Key.CONTROL) && bar.power >= 25)
 			{
 				bar.maj( -25);
-				if (formeActuelle == 1) FP.world.add(new WhiteLaser);
-				else  FP.world.add(new BlackLaser);
+				if (formeActuelle == 1) FP.world.add(new WhiteLaser(x,y));
+				else  FP.world.add(new BlackLaser(x,y));
 			}
 				
 			//Test changement forme
