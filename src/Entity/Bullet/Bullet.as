@@ -20,7 +20,7 @@ package Entity.Bullet
 		
 		override public function update():void 
 		{
-			if (y < 0) destroy();
+			if (y < 0 || y > FP.screen.height) destroy();
 	
 			y -= orientation;
 		}

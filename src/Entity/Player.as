@@ -62,7 +62,7 @@ package Entity
 				bar.maj(2);
 				temp.destroy();
 	
-				}
+			}
 			
 			var temp2:BlackBullet = collide("blackbullet", x, y) as BlackBullet;
 			if (formeActuelle == 2 && temp2)
@@ -91,6 +91,13 @@ package Entity
 			{
 				y += 3;
 			}
+			if (Input.pressed(Key.CONTROL) && bar.power >= 25)
+			{
+				bar.maj( -25);
+				if (formeActuelle == 1) FP.world.add(new WhiteLaser);
+				else  FP.world.add(new BlackLaser);
+			}
+				
 			//Test changement forme
 			if (Input.pressed("ChangeForme"))
 			{
