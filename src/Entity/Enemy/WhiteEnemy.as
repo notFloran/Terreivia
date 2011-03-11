@@ -1,11 +1,13 @@
 package Entity.Enemy
 {
+	import Entity.*;
+	import Entity.Bullet.*;
+	
 	import net.flashpunk.Entity;
+	import net.flashpunk.FP;
+	import net.flashpunk.Tween;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.*;
-	import net.flashpunk.FP;
-	import Entity.Bullet.*;
-	import Entity.*;
 
 	public class WhiteEnemy extends Enemy
 	{
@@ -15,10 +17,9 @@ package Entity.Enemy
 		private var time:Number = 0;
 
 
-		public function WhiteEnemy(group:GroupEnemy = null) 
+		public function WhiteEnemy(mouv:String, group:GroupEnemy = null) 
 		{
-			
-			super(group);
+			super(mouv,group);
 			
 			var image:Image =  new Image(Forme);
 			
@@ -27,12 +28,16 @@ package Entity.Enemy
 			height = image.height;
 			width = image.width;
 			
-
+			if(mouv == "Circular") mouvCircular();
+			else if(mouv == "Linear") mouvLinear();
 		}
+
 		
 		override public function update():void
 		{
 			time += FP.elapsed;
+			
+			updateEnemy();
 			
 			// Hors de l'écran
 			if (y > FP.screen.height)	this.destroy();

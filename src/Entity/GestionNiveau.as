@@ -37,6 +37,7 @@ package Entity
 				Evenement["x"] = xml.Evenement[i].@x;
 				Evenement["y"] = xml.Evenement[i].@y;
 				Evenement["time"] = xml.Evenement[i].@time;
+				Evenement["mouv"] = xml.Evenement[i].@mouv;
 
 				Evenements.push(Evenement);
 			}
@@ -54,7 +55,7 @@ package Entity
 					
 					var groupe:GroupEnemy = new GroupEnemy();
 					FP.world.add(groupe);
-					groupe.createGroup(Evenements[0]["nombre"], Evenements[0]["type"],  Evenements[0]["x"] , Evenements[0]["y"]);
+					groupe.createGroup(Evenements[0]["nombre"], Evenements[0]["type"],  Evenements[0]["x"] , Evenements[0]["y"], Evenements[0]["mouv"]);
 					
 					Evenements.shift();
 				}

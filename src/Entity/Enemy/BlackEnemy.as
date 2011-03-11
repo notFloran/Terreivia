@@ -15,12 +15,10 @@ package Entity.Enemy
 		private const Forme:Class;
 		private var time:Number = 0;
 		
-
-
-		public function BlackEnemy(group:GroupEnemy = null) 
+		public function BlackEnemy(mouv:String, group:GroupEnemy = null) 
 		{
 			
-			super(group);
+			super(mouv, group);
 			var image:Image =  new Image(Forme);
 			graphic = image;
 			
@@ -31,6 +29,8 @@ package Entity.Enemy
 		override public function update():void
 		{
 			time += FP.elapsed;
+			
+			updateEnemy();
 			
 			// Hors de l'écran
 			if (y > FP.screen.height)	this.destroy();
