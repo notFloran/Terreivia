@@ -21,7 +21,7 @@ package Entity
 		public var time2:Number = 0;
 		private var Evenements:Array = new Array();
 		
-		[Embed(source="niveau.xml", mimeType="application/octet-stream")]
+		[Embed(source="../../niveau.xml", mimeType="application/octet-stream")]
 		private var xmlNiveau:Class;
 		
 		public function GestionNiveau () 

@@ -19,6 +19,7 @@ package Entity.Bullet
 		[Embed(source = '../../../assets/BlackLaser.png')]
 		private const Laser:Class;
 		
+		private var player:Player;
 		public var time:Number = 0;
 		
 		public var sprLaserSpritemap:Spritemap = new Spritemap(Laser, 480, 640);
@@ -34,12 +35,14 @@ package Entity.Bullet
 		
 		override public function update():void
 		{
-			
+			if (player)
+				player = FP.world.classFirst(Player) as Player;
+				
 			time += FP.elapsed;
-	
 			
 			sprLaserSpritemap.play("fire");
-			
+			sprLaserSpritemap.x =  player.x - 225;
+			sprLaserSpritemap.y = player.y - 610;
 			if (time > 0.8) {
 				var enemyList:Array = [];
 				FP.world.getClass(WhiteEnemy, enemyList);

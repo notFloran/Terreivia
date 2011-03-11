@@ -19,6 +19,7 @@ package Entity.Bullet
 		private const Laser:Class;
 		
 		public var time:Number = 0;
+		private var player:Player;
 		
 		public var sprLaserSpritemap:Spritemap = new Spritemap(Laser, 480, 640);
 		public function WhiteLaser(x:int,y:int) 
@@ -33,11 +34,14 @@ package Entity.Bullet
 		
 		override public function update():void
 		{
-			
+			if (player)
+				player = FP.world.classFirst(Player) as Player;
+				
 			time += FP.elapsed;
 			
 			sprLaserSpritemap.play("fire");
-			
+			sprLaserSpritemap.x =  player.x - 225;
+			sprLaserSpritemap.y = player.y - 610;
 			if (time > 0.8) {
 				var enemyList:Array = [];
 				world.getClass(BlackEnemy, enemyList);
