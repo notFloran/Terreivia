@@ -69,7 +69,8 @@ package Entity
 				var tabGroupEnemy:Array = [];
 				FP.world.getClass(GroupEnemy,tabGroupEnemy);
 				
-				if(Evenements.length == 0 && tabGroupEnemy.length == 0) FP.world = new NiveauFini;
+				if (Evenements.length == 0 && tabGroupEnemy.length == 0)
+					FP.world = new NiveauFini;
 			}
 		}	
 		

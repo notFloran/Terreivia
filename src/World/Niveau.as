@@ -15,16 +15,13 @@ package World
 	
 	public class Niveau extends World
 	{
-		[Embed(source = '../../assets/sound/theme.mp3')]
-		private const THEME:Class;
-		
-		public var theme:Sfx = new Sfx(THEME);
 		public function Niveau() 
 		{
-			theme.loop(0.3);
+			
 			//Couleur de fond
 			FP.screen.color = 0x808080;
 			add(new Powerbar);
+			add(new Sound);
 			add(new Fond);
 			add(new Nuage);
 			add(new Score);
@@ -33,8 +30,7 @@ package World
 			add(new GestionNiveau);
 			
 		}
-		
-		
 	}
+	
 }
  

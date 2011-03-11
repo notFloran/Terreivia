@@ -29,7 +29,7 @@ package Entity.Bullet
 			sprLaserSpritemap.add("fire", [0, 1, 2, 3], 6, false);
 			sprLaserSpritemap.x =  x - 225;
 			sprLaserSpritemap.y = y - 610;
-			graphic = sprLaserSpritemap;
+			
 			
 		}
 		
@@ -41,8 +41,9 @@ package Entity.Bullet
 			time += FP.elapsed;
 			
 			
-			if(time > 1.5)
+			if(time > 1.3)
 			{
+				graphic = sprLaserSpritemap;
 				sprLaserSpritemap.play("fire");
 				sprLaserSpritemap.x =  player.x - 225;
 				sprLaserSpritemap.y = player.y - 610;
