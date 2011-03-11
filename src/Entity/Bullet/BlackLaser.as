@@ -35,7 +35,7 @@ package Entity.Bullet
 		
 		override public function update():void
 		{
-			if (player)
+			if (!player)
 				player = FP.world.classFirst(Player) as Player;
 				
 			time += FP.elapsed;
@@ -47,7 +47,10 @@ package Entity.Bullet
 				var enemyList:Array = [];
 				FP.world.getClass(WhiteEnemy, enemyList);
 				for each(var e:WhiteEnemy in enemyList)
+				{
 					e.destroy();
+					Score.updateScore(50);
+				}
 				destroy();
 			}
 			
