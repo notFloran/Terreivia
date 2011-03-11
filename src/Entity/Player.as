@@ -47,16 +47,16 @@ package Entity
 			if (!bar) bar = FP.world.classFirst(Powerbar) as Powerbar;
 				
 			//Test mort
-			if (formeActuelle == 1 && collide("ennemy_blackbullet", x, y))
+			if (formeActuelle == 1 && collide("enemy_blackbullet", x, y))
 				FP.world = new GameOver;
-			if (formeActuelle == 2 && collide("ennemy_whitebullet", x, y))
+			if (formeActuelle == 2 && collide("enemy_whitebullet", x, y))
 				FP.world = new GameOver;
 				
 			if (collide("enemy", x, y))
 				FP.world = new GameOver;
 			
 			//Test absorption boule
-			var temp:WhiteBullet = collide("ennemy_whitebullet", x, y) as WhiteBullet;
+			var temp:WhiteBullet = collide("enemy_whitebullet", x, y) as WhiteBullet;
 			if (formeActuelle == 1 && temp)
 			{
 				bar.maj(2);
@@ -64,7 +64,7 @@ package Entity
 	
 			}
 			
-			var temp2:BlackBullet = collide("ennemy_blackbullet", x, y) as BlackBullet;
+			var temp2:BlackBullet = collide("enemy_blackbullet", x, y) as BlackBullet;
 			if (formeActuelle == 2 && temp2)
 			{
 				bar.maj(2);
