@@ -50,6 +50,8 @@ package Entity.Enemy
 		public function goMouv():void {
 			if(mouv == "Circular") mouvCircular();
 			else if(mouv == "Linear") mouvLinear();
+			else if(mouv == "Hori1") mouvHori1();
+			else if(mouv == "Hori2") mouvHori2();
 		}
 
 		public function destroy():void
@@ -66,10 +68,18 @@ package Entity.Enemy
 			FP.world.addTween(tweenLinear,true);
 		}
 		
-		public function mouvHori():void {
-			typeTween = "Hori";
+		public function mouvHori1():void {
+			typeTween = "Hori1";
 			tweenLinear = new LinearMotion(relancerMouv);
-			tweenLinear.setMotion(0, posY, FP.screen.width, FP.screen.height + 30,10);
+			tweenLinear.setMotion(0, posY, FP.screen.width+50, posY + 50,10);
+			tween = tweenLinear;
+			FP.world.addTween(tweenLinear,true);
+		}
+		
+		public function mouvHori2():void {
+			typeTween = "Hori2";
+			tweenLinear = new LinearMotion(relancerMouv);
+			tweenLinear.setMotion(FP.screen.width, posY, -50, posY + 50,10);
 			tween = tweenLinear;
 			FP.world.addTween(tweenLinear,true);
 		}
@@ -85,13 +95,16 @@ package Entity.Enemy
 		
 		public function relancerMouv():void {
 			tween.start();
+			
+			if(typeTween == "Hori1" || typeTween == "Hori2")
+				destroy();
 		}
 		
 		public function updateEnemy():void {
 
 			deplacementY += 1;			
 			
-			if(typeTween == "Linear" || typeTween == "Hori") {
+			if(typeTween == "Linear" || typeTween == "Hori1" || typeTween == "Hori2") {
 				
 				x = tweenLinear.x;
 				y = tweenLinear.y;

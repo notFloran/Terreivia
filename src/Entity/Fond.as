@@ -23,8 +23,11 @@ package Entity
 	public class Fond extends Entity
 	{
 		public var time:Number = 0;
-		private var latitude:Number = 48.857339;
-		private var longitude:Number = 2.296808;
+		/*private var latitude:Number = 48.857339;
+		private var longitude:Number = 2.296808;*/
+		private var latitude:Number = 29.979556;
+		private var longitude:Number = 31.134503;
+		
 		private var map:Map;
 		public static var mapOk:Boolean = false;
 		

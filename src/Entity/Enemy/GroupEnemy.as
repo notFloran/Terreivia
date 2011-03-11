@@ -16,11 +16,12 @@ package Entity.Enemy
 		
 		public function GroupEnemy() 
 		{
+			
 		}
 		
 		public function createGroup(nombre:int, type:String, spawnX:int, spawnY:int, mouv:String):void
 		{
-			
+			FP.log("Creation group" + mouv);
 			for (var i:int = 0 ; i < nombre; i++)
 			{
 				var temp:Enemy = type == "White" ? new WhiteEnemy(mouv, this) : new BlackEnemy(mouv, this);

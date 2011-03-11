@@ -14,8 +14,8 @@ package
 			super(480, 640, 60, false);
 
 			FP.world = new Menu;
-			FP.console.enable();
-			FP.console.toggleKey = Key.T;
+			//FP.console.enable();
+			//FP.console.toggleKey = Key.T;
 		}
 		
 	}

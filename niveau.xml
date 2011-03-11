@@ -1,8 +1,10 @@
 <root>
 	<Evenement time="1" nombre="4" type="White" x="20" y="0" mouv="" />
 	<Evenement time="1" nombre="4" type="Black" x="300" y="0" mouv="" />
-	<Evenement time="8" nombre="3" type="White" x="100" y="0" mouv="Circular" />
+	<Evenement time="10" nombre="4" type="Black" x="0" y="300" mouv="Hori2" />
+	<Evenement time="10" nombre="4" type="White" x="0" y="120" mouv="Hori1" />
+	<Evenement time="20" nombre="3" type="White" x="100" y="0" mouv="Circular" />
 	<Evenement time="15" nombre="2" type="Black" x="20" y="0" mouv="Linear" />
 	<Evenement time="15" nombre="2" type="White" x="360" y="0" mouv="Linear" />
-	<Evenement time="20" nombre="2" type="White" x="250" y="0" mouv="" />
+	<Evenement time="30" nombre="2" type="White" x="250" y="0" mouv="" />
 </root>
