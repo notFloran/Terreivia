@@ -18,6 +18,8 @@ package Entity.Bullet
 		[Embed(source = '../../../assets/WhiteLaser.png')]
 		private const Laser:Class;
 		
+		public var time:Number = 0;
+		
 		public var sprLaserSpritemap:Spritemap = new Spritemap(Laser, 480, 640);
 		public function WhiteLaser(x:int,y:int) 
 		{
@@ -31,11 +33,18 @@ package Entity.Bullet
 		
 		override public function update():void
 		{
-			var enemyList:Array = new Array;
+			
+			time += FP.elapsed;
+			
 			sprLaserSpritemap.play("fire");
-			world.getClass(BlackEnemy, enemyList);
-			for each(var e:BlackEnemy in enemyList)
-				e.destroy();
+			
+			if (time > 0.8) {
+				var enemyList:Array = [];
+				world.getClass(BlackEnemy, enemyList);
+				for each(var e:BlackEnemy in enemyList)
+					e.destroy();
+				destroy();
+			}
 			
 		}
 	}
