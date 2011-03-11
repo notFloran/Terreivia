@@ -26,19 +26,6 @@ package World
 			
 			add(new GestionNiveau);
 			
-			/*var groupe1:GroupEnemy = new GroupEnemy();
-			var groupe2:GroupEnemy = new GroupEnemy();
-			var groupe3:GroupEnemy = new GroupEnemy();
-			var groupe4:GroupEnemy = new GroupEnemy();
-			add(groupe1);
-			add(groupe2);
-			add(groupe3);
-			add(groupe4);
-			groupe1.createGroup(4, "Black",  120 , 0);
-			groupe2.createGroup(4, "White",  20 , 0);
-			groupe3.createGroup(5, "Black",  240 , 0);
-			groupe4.createGroup(4, "White",  300 , 0);*/
-			
 		}
 		
 		

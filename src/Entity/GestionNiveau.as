@@ -16,15 +16,16 @@ package Entity
 	public class GestionNiveau extends Entity
 	{
 		public var time:Number = 0;
+		public var time2:Number = 0;
 		private var Evenements:Array = new Array();
 		
 		public function GestionNiveau () 
 		{
 	
 			var xml:XML = <root>
-				<Evenement time="10" nombre="4" type="White" x="20" y="0" />
-				<Evenement time="10" nombre="3" type="Black" x="200" y="0" />
-				<Evenement time="30" nombre="2" type="Black" x="60" y="0" />
+				<Evenement time="5" nombre="4" type="White" x="20" y="0" />
+				<Evenement time="5" nombre="3" type="Black" x="200" y="0" />
+				<Evenement time="15" nombre="2" type="Black" x="60" y="0" />
 			</root>;
 			
 			for(var i:String in xml..Evenement) {
@@ -43,6 +44,7 @@ package Entity
 		override public function update():void 
 		{
 			time += FP.elapsed;
+			time2 += FP.elapsed;
 			
 			if(Evenements.length > 0) {
 
@@ -57,8 +59,17 @@ package Entity
 				
 			}
 			
-			//if(Evenements.length == 0) FP.world = new NiveauFini;
 			
+			// On vérifie toutes les 2 secondes si les niveau est fini
+			if(time2 > 2) {
+				
+				time2 = 0;
+				var tabGroupEnemy:Array = [];
+				FP.world.getClass(GroupEnemy,tabGroupEnemy);
+				FP.log(Evenements.length + "  " + tabGroupEnemy.length);
+				
+				if(Evenements.length == 0 && tabGroupEnemy.length == 0) FP.world = new NiveauFini;
+			}
 		}	
 		
 	}
