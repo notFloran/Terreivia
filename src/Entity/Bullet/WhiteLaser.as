@@ -25,7 +25,7 @@ package Entity.Bullet
 		override public function update():void
 		{
 			var enemyList:Array = new Array;
-			enemyList = world.getClass(BlackEnemy, enemyList);
+			world.getClass(BlackEnemy, enemyList);
 			for each(var e:BlackEnemy in enemyList)
 				e.destroy();
 			
