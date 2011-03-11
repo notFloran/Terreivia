@@ -66,6 +66,14 @@ package Entity.Enemy
 			FP.world.addTween(tweenLinear,true);
 		}
 		
+		public function mouvHori():void {
+			typeTween = "Hori";
+			tweenLinear = new LinearMotion(relancerMouv);
+			tweenLinear.setMotion(0, posY, FP.screen.width, FP.screen.height + 30,10);
+			tween = tweenLinear;
+			FP.world.addTween(tweenLinear,true);
+		}
+		
 		public function mouvCircular():void {
 			FP.log(posX + " " + posY);
 			typeTween = "Circular";
@@ -83,7 +91,7 @@ package Entity.Enemy
 
 			deplacementY += 1;			
 			
-			if(typeTween == "Linear") {
+			if(typeTween == "Linear" || typeTween == "Hori") {
 				
 				x = tweenLinear.x;
 				y = tweenLinear.y;
@@ -96,7 +104,7 @@ package Entity.Enemy
 				
 			}
 			else {
-				x += 1;
+				y += 1;
 			}
 			
 		}
